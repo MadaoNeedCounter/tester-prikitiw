@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pahlawan Pemilah Sampah - Edukasi SD Kelas 4-6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">
+            <span>🌱</span> Pahlawan Sampah
+        </div>
+        <nav>
+            <button onclick="showSection('materi')" class="nav-btn active">📖 Materi</button>
+            <button onclick="showSection('game')" class="nav-btn">🎮 Mini Game</button>
+            <button onclick="showSection('kuis')" class="nav-btn">📝 Kuis</button>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- SECTION 1: MATERI EDUKASI -->
+        <section id="materi" class="content-section active">
+            <div class="hero">
+                <h1>Yuk, Jadi Pahlawan Lingkungan! 🌍</h1>
+                <p>Tahukah kamu? Memilah sampah dari rumah membantu mencegah banjir, mengurangi pencemaran, dan menyelamatkan bumi kita.</p>
+            </div>
+
+            <h2>Kenali 3 Jenis Tempat Sampah</h2>
+            <div class="cards-grid">
+                <!-- Card Organik -->
+                <div class="card card-organik">
+                    <div class="card-icon">🍏</div>
+                    <h3>1. Sampah Organik (Hijau)</h3>
+                    <p class="subtitle">Sampah alami yang mudah membusuk dan terurai.</p>
+                    <div class="card-body">
+                        <strong>Contoh:</strong>
+                        <ul>
+                            <li>Sisa makanan & sayuran</li>
+                            <li>Kulit buah-buahan</li>
+                            <li>Daun dan ranting gugur</li>
+                            <li>Cangkang telur</li>
+                        </ul>
+                        <div class="tip">💡 <strong>Dapat diolah menjadi:</strong> Pupuk kompos untuk tanaman.</div>
+                    </div>
+                </div>
+
+                <!-- Card Anorganik -->
+                <div class="card card-anorganik">
+                    <div class="card-icon">🥤</div>
+                    <h3>2. Sampah Anorganik (Kuning)</h3>
+                    <p class="subtitle">Sampah buatan manusia yang sulit atau butuh waktu lama terurai.</p>
+                    <div class="card-body">
+                        <strong>Contoh:</strong>
+                        <ul>
+                            <li>Botol & gelas plastik</li>
+                            <li>Kaleng minuman</li>
+                            <li>Kertas & kardus bekas</li>
+                            <li>Kantung plastik / kresek</li>
+                        </ul>
+                        <div class="tip">💡 <strong>Dapat diolah menjadi:</strong> Kerajinan tangan atau didaur ulang kembali.</div>
+                    </div>
+                </div>
+
+                <!-- Card B3 -->
+                <div class="card card-b3">
+                    <div class="card-icon">🔋</div>
+                    <h3>3. Sampah B3 (Merah)</h3>
+                    <p class="subtitle">Bahan Berbahaya & Beracun yang dapat merusak kesehatan dan lingkungan.</p>
+                    <div class="card-body">
+                        <strong>Contoh:</strong>
+                        <ul>
+                            <li>Baterai bekas</li>
+                            <li>Lampu neon / bohlam pecah</li>
+                            <li>Botol racun serangga</li>
+                            <li>Obat kedaluwarsa</li>
+                        </ul>
+                        <div class="tip">⚠️ <strong>Penanganan khusus:</strong> Jangan dibakar atau dibuang sembarangan!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: MINI GAME -->
+        <section id="game" class="content-section">
+            <div class="game-header">
+                <h2>🎮 Game Memilah Sampah</h2>
+                <p>Pilih kategori yang tepat untuk setiap sampah yang muncul!</p>
+                <div class="score-board">Skor: <span id="game-score">0</span></div>
+            </div>
+
+            <div class="game-area">
+                <div class="trash-item-card">
+                    <div id="trash-emoji" class="trash-emoji">🍎</div>
+                    <div id="trash-name" class="trash-name">Apel Cokelat (Sisa Makanan)</div>
+                </div>
+
+                <div class="bins-container">
+                    <button class="bin-btn bin-organik" onclick="checkGameAnswer('organik')">
+                        <span>🗑️</span> Organik (Hijau)
+                    </button>
+                    <button class="bin-btn bin-anorganik" onclick="checkGameAnswer('anorganik')">
+                        <span>🗑️</span> Anorganik (Kuning)
+                    </button>
+                    <button class="bin-btn bin-b3" onclick="checkGameAnswer('b3')">
+                        <span>🗑️</span> B3 (Merah)
+                    </button>
+                </div>
+                <div id="game-feedback" class="feedback-msg"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: KUIS -->
+        <section id="kuis" class="content-section">
+            <div id="quiz-container" class="quiz-container">
+                <h2>📝 Kuis Uji Pemahaman</h2>
+                <p>Jawab 5 pertanyaan berikut untuk menguji pemahamanmu!</p>
+
+                <div id="quiz-body">
+                    <div class="question-number" id="quiz-progress">Pertanyaan 1 dari 5</div>
+                    <div class="question-text" id="quiz-question">Loading pertanyaan...</div>
+                    <div class="quiz-options" id="quiz-options">
+                        <!-- Pilihan jawaban diisi JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hasil Kuis -->
+            <div id="quiz-result" class="quiz-result hidden">
+                <div class="trophy">🏆</div>
+                <h2>Kuis Selesai!</h2>
+                <p>Skor Kamu: <strong id="final-score">0</strong> / 100</p>
+                <p id="result-message"></p>
+                <button onclick="restartQuiz()" class="btn-restart">Ulangi Kuis 🔄</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Edukasi Memilah Sampah &copy; 2026 — Mari Jaga Bumi Kita Bersama 🌿</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
